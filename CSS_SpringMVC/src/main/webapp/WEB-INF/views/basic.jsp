@@ -24,7 +24,7 @@
 <body>
 
 	<div class = "container">
-	<h2>jQuery+ajax+Session관리</h2>
+	<h2>CSS HOME 이제 시작</h2>
 		<div class="panel panel-default">
   			<div class="panel-heading">
   			
