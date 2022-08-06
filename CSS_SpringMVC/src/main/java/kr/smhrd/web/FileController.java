@@ -18,9 +18,19 @@ public class FileController {
 	@Autowired
 	private FileService service;
 	
-	@RequestMapping("/")
-	public String basic() {
-		return "basic";
+	@RequestMapping("/Home")
+	public String Home() {
+		return "Home";
+	}
+
+	@RequestMapping("/RecogSl")
+	public String RecogSl() {
+		return "RecogSl";
+	}	
+	
+	@RequestMapping("/FreqSl")
+	public String FreqSl() {
+		return "FreqSl";
 	}
 	
 }
