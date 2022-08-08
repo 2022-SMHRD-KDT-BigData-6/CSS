@@ -22,22 +22,38 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="resources/assets/css/main.css" />
 <noscript><link rel="stylesheet" href="resources/assets/css/noscript.css" /></noscript>
+<style>
+	video{
+		    height: 850px;
+  		 	position: absolute;
+    		top: -400px;
+    		left: -700px;
+	}
+	a.button.circled.scrolly{
+		position: absolute;
+		top: 340px;
+	}
+	
+</style>
 </head>
 	<body class="homepage is-preload">
 		<div id="page-wrapper">
 
 			<!-- Header -->
 				<div id="header">
+				
 
 					<!-- Inner -->
-						<div class="inner">							
+						<div class="inner">		
+							<video src="resources/images/homescreen4.mp4" loop muted autoplay>이 브라우저는 재생할 수 없습니다.</video>
 							<footer>
-								<a href="#banner" class="button circled scrolly">Start</a>
+								<a href="RecogSl" class="button circled scrolly">Start</a>
 							</footer>
 						</div>
 
 					<!-- Nav -->
 						<nav id="nav">
+							
 							<ul>
 								<li><a href="Home">홈</a></li>
 								<li><a href="RecogSl">수어인식 화면</a></li>
