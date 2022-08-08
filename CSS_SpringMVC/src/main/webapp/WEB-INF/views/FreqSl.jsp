@@ -12,16 +12,22 @@
 
 <!-- bootstrap 사용하기 위해 필요한 라이브러리 3개! -->
 <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="resources/assets/css/main.css" />
-<noscript><link rel="stylesheet" href="resources/assets/css/noscript.css" /></noscript>
+<noscript>
+	<link rel="stylesheet" href="resources/assets/css/noscript.css" />
+</noscript>
 <!--  
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -29,17 +35,25 @@
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
--->	
+-->
 <!-- 차트 링크 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 -->
 
 <!-- 날짜 검색 -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
-<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" />
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+	integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+	crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"
+	integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA=="
+	crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"
+	integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ=="
+	crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="./jquery-ui.css">
 </head>
 
 <body class="no-sidebar is-preload">
@@ -60,58 +74,33 @@
 
 		<div class="row">
 			<div class="col-sm-5">
-
-				<div class='col-md-3 col-xs-4'>
-					<div class="form-group">
-						<div class="input-group date" id="datetimepicker1"
-							data-target-input="nearest">
-							<input type="text" class="form-control datetimepicker-input"
-								data-target="#datetimepicker1" value="01/08/2022">
-							<div class="input-group-append" data-target="#datetimepicker1"
-								data-toggle="datetimepicker">
-								<div class="input-group-text">
-									<i class="fa fa-calendar"></i>
-								</div>
-							</div>
-						</div>
+				<p>
+				<div class="panel panel-default">
+  					<div class="panel-heading">
+  						<h4> 날짜 검색 : <input class="datepicker"></h4>
 					</div>
 				</div>
-
-				<div class='col-md-3 col-xs-4'>
-					<div class="form-group">
-						<div class="input-group date" id="datetimepicker2"
-							data-target-input="nearest">
-							<input type="text" class="form-control datetimepicker-input"
-								data-target="#datetimepicker2" value="05/08/2022">
-							<div class="input-group-append" data-target="#datetimepicker2"
-								data-toggle="datetimepicker">
-								<div class="input-group-text">
-									<i class="fa fa-calendar"></i>
-								</div>
-							</div>
+  					<div class="panel-body">
+						<div class="container">
+							<h2>Condensed Table</h2>
+							<table class="table table-condensed">
+								<thead>
+									<tr>
+										<th>순위</th>
+										<th>단어</th>
+										<th>빈도수</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>John</td>
+										<td>Doe</td>
+										<td>john@example.com</td>
+									</tr>
+								</tbody>
+							</table>
 						</div>
 					</div>
-				</div>
-
-
-				<div class="container">
-					<h2>Condensed Table</h2>
-					<table class="table table-condensed">
-						<thead>
-							<tr>
-								<th>순위</th>
-								<th>단어</th>
-								<th>빈도수</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>John</td>
-								<td>Doe</td>
-								<td>john@example.com</td>
-							</tr>
-						</tbody>
-					</table>
 				</div>
 			</div>
 
@@ -125,15 +114,56 @@
 		</div>
 	</div>
 
+
+	<script type="text/javascript">
+	
+		$(document).ready(function(){
+			loadList();  
+		})		
+
+		function loadList() {
+			$.ajax({
+				// 서버 url
+				url : '${cpath}/boardListAjax.do',
+				type : 'get',
+				dataType : 'json',
+				success : listView,
+				error : function() {
+					alert('실패!');
+				}
+			})
+		}
+
+		// 날짜 검색
+		$.datepicker.setDefaults({
+			dateFormat : 'yy-mm-dd',
+			prevText : '이전 달',
+			nextText : '다음 달',
+			monthNames : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월' ],
+			monthNamesShort : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월' ],
+			dayNames : [ '일', '월', '화', '수', '목', '금', '토' ],
+			dayNamesShort : [ '일', '월', '화', '수', '목', '금', '토' ],
+			dayNamesMin : [ '일', '월', '화', '수', '목', '금', '토' ],
+			showMonthAfterYear : true,
+			yearSuffix : '년'
+		});
+
+		$(function() {
+			$('.datepicker').datepicker();
+		})		
+	</script>
+
+
 	<!-- Scripts -->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/jquery.dropotron.min.js"></script>
-	<script src="assets/js/jquery.scrolly.min.js"></script>
-	<script src="assets/js/jquery.scrollex.min.js"></script>
-	<script src="assets/js/browser.min.js"></script>
-	<script src="assets/js/breakpoints.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<script src="assets/js/main.js"></script>
+	<script src="resources/assets/js/jquery.min.js"></script>
+	<script src="resources/assets/js/jquery.dropotron.min.js"></script>
+	<script src="resources/assets/js/jquery.scrolly.min.js"></script>
+	<script src="resources/assets/js/jquery.scrollex.min.js"></script>
+	<script src="resources/assets/js/browser.min.js"></script>
+	<script src="resources/assets/js/breakpoints.min.js"></script>
+	<script src="resources/assets/js/util.js"></script>
+	<script src="resources/assets/js/main.js"></script>
+	<script src="resources/assets/jquery-ui/jquery-ui.min.js"></script>
 
 	<!-- 부트스트랩 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -188,6 +218,8 @@
 	</script>
     -->
     
+
+    <!--      
 	<script type="text/javascript">
 		$(function() {
 			$('#datetimepicker1').datetimepicker({
@@ -205,5 +237,6 @@
 			});
 		});
 	</script>
+	-->
 </body>
 </html>
