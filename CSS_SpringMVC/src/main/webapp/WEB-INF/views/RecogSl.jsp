@@ -21,6 +21,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="resources/assets/css/main.css" />
 <noscript><link rel="stylesheet" href="resources/assets/css/noscript.css" /></noscript>
+<style>
+	button{
+		position: absolute;
+	    background: #df7366;
+	    color: #fff;
+	    text-align: center;
+	    border-radius: 0.5em;
+	    text-decoration: none;
+	    padding: 0.65em 3em 0.65em 3em;
+	    border: 0;
+	    cursor: pointer;
+	    outline: 0;
+	    font-weight: 300;
+	    top: 600px;
+	    left: 250px;
+	}
+</style>
+
 </head>
 
 <body class="left-sidebar is-preload">
@@ -40,8 +58,36 @@
 		</div>
 
 		<div class="panel panel-default">
-			<div class="panel-body">A Basic Panel</div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-sm-4">
+					<video id="myVideo" width="600" height="600" style="border: 1px solid #ddd;"></video>
+					<button>수어 결과</button>
+					</div>
+					<div class="col-sm-3">
+						<img class="img1" src="resources/slimg3/1.jpg">
+						<br>
+						<h3 align="center">왼쪽</h3>
+						<br>
+						<h4 align="center">1.오른쪽</h4>
+						<h4 align="center">2.손짓</h4>	
+					</div>
+					<div class="col-sm-2">
+						<img class="img2" src="resources/slimg2/2.jpg">
+						<br>
+						<h4 align="center">왼쪽</h4>
+						<br>
+						<h5 align="center">1.오른쪽</h5>
+						<h5 align="center">2.손짓</h5>
+					</div>
+					<div class="col-sm-2">
+						<img class="img3" src="resources/slimg2/3.jpg">
+					</div>
+				</div>
+			</div>
+			
 		</div>
+		
 	</div>
 
 	<!-- Scripts -->
@@ -53,5 +99,28 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
+	<script>
+        // 1. 요소들을 가져오기
+        let btn = document.querySelector('button');
+        let img = document.querySelector('.img1');
+        // 2. 이벤트 처리하기
+        btn.onclick = function(){
+        	console.log(img.src);
+            if(img.src == "./resources/slimg2/2.jpg"){
+            	console.log(img.src);
+                img.src = "./resources/slimg3/1.jpg";
+            } else{
+            console.log(img.src);
+            img.src = './resources/slimg3/1.jpg';
+            console.log(img.src);
+            }
+        }
+
+
+    </script>
+	
+	
+	
+	
 </body>
 </html>
