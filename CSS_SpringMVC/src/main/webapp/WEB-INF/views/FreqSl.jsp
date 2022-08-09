@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%> 
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
-<%-- jstl, el 문법 --%>      
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%-- jstl, el 문법 --%>
 <!-- 프로젝트의 contextpath 값을 동적으로 가져오는 방법 -->
 <!--  ${pageContext.request.contextPath}  -->
-<c:set var="cpath" value="${pageContext.request.contextPath}"/>
+<c:set var="cpath" value="${pageContext.request.contextPath}" />
 
 <!DOCTYPE html>
 <html>
@@ -76,34 +77,20 @@
 			<div class="col-sm-5">
 				<p>
 				<div class="panel panel-default">
-  					<div class="panel-heading">
-  						<h4> 날짜 검색 : <input class="datepicker"></h4>
+					<div class="panel-heading">
+						<h4>
+							날짜 : <input class="datepicker">
+						</h4>
 					</div>
 				</div>
-  					<div class="panel-body">
-						<div class="container">
-							<h2>Condensed Table</h2>
-							<table class="table table-condensed">
-								<thead>
-									<tr>
-										<th>순위</th>
-										<th>단어</th>
-										<th>빈도수</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>John</td>
-										<td>Doe</td>
-										<td>john@example.com</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-					</div>
+				<div class="panel-body">
+					<table class="table table-condensed">
+						<tr class="heading">
+						<th>순위</th>	<th>단어</th>	<th>빈도수</th>
+						</tr>
+					</table>
 				</div>
 			</div>
-
 
 			<div class="col-sm-7">
 				<!--  <div class="container">
@@ -116,15 +103,14 @@
 
 
 	<script type="text/javascript">
-	
-		$(document).ready(function(){
-			loadList();  
-		})		
+		$(document).ready(function() {
+			loadList();
+		})
 
 		function loadList() {
 			$.ajax({
 				// 서버 url
-				url : '${cpath}/boardListAjax.do',
+				url : '${cpath}/freqListAjax.do',
 				type : 'get',
 				dataType : 'json',
 				success : listView,
@@ -134,13 +120,44 @@
 			})
 		}
 
+		function listView(data) {
+
+			var blist = "";
+			var blist2 = "";
+			
+			console.log(data);
+			const seldate = data[0].sdate;
+			const displaydate = seldate.split(" ");
+			
+			blist2 = "<div class='searchhead'><h3>" + displaydate[0] + "일 인식 단어 리스트</h3></div>";				
+			
+			//blist += '<div class="panel-body"><table class="table table-condensed"><tr class="heading"> <th>순위</th>	<th>단어</th>	<th>빈도수</th></tr>';
+			
+			$.each(data, function(index, flist) {
+				blist += "<tr class ='innerContent'>"
+				blist += "<td>" + flist.frank + "</td>"
+				blist += "<td>" + flist.sl_word + "</td>"
+				blist += "<td>" + flist.freqidx + "</td>"
+				blist += "</tr>"
+			})
+
+			blist += '</table></div>';
+
+			$('.searchhead').remove();
+			$('.table-condensed').before(blist2);
+			$('.innerContent').remove();
+			$('.heading').after(blist);
+		}
+
 		// 날짜 검색
 		$.datepicker.setDefaults({
 			dateFormat : 'yy-mm-dd',
 			prevText : '이전 달',
 			nextText : '다음 달',
-			monthNames : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월' ],
-			monthNamesShort : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월' ],
+			monthNames : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월',
+					'9월', '10월', '11월', '12월' ],
+			monthNamesShort : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월',
+					'9월', '10월', '11월', '12월' ],
 			dayNames : [ '일', '월', '화', '수', '목', '금', '토' ],
 			dayNamesShort : [ '일', '월', '화', '수', '목', '금', '토' ],
 			dayNamesMin : [ '일', '월', '화', '수', '목', '금', '토' ],
@@ -148,9 +165,25 @@
 			yearSuffix : '년'
 		});
 
-		$(function() {
-			$('.datepicker').datepicker();
-		})		
+		$('.datepicker').datepicker({
+			dateFormat : 'yy-mm-dd',
+			onSelect : function(sdate) {
+				searchList(sdate);
+			}
+		});
+		
+		function searchList(sdate){
+			$.ajax({
+				url : '${cpath}/seldateFreqAjax.do',
+				data : {'sdate' : sdate},
+				type : 'get',
+				success : listView,
+				error : function(){
+					alert('실패!');
+				}
+			});
+		}
+		
 	</script>
 
 
@@ -217,9 +250,9 @@
 		});
 	</script>
     -->
-    
 
-    <!--      
+
+	<!--      
 	<script type="text/javascript">
 		$(function() {
 			$('#datetimepicker1').datetimepicker({

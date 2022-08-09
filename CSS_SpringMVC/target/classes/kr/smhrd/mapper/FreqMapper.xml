@@ -2,9 +2,20 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.smhrd.mapper.FreqMapper">
 
-    <select id="">
-        
-        
+    <select id="freqList" resultType ="kr.smhrd.model.FreqVO">
+        select distinct A.sl_word as sl_word, A.tot as freqidx, dense_rank() over(order by tot desc) as frank, A.sdate 
+		from (select distinct sl_word, sdate, count(*) over(partition by sl_word) as tot
+      		  from fill.used_sl
+      		  where sdate >= date_add(now(), interval -2 day)
+      		  order by tot desc) A;        
+    </select>
+    
+    <select id="searchList" resultType = "kr.smhrd.model.FreqVO">
+        select distinct A.sl_word as sl_word, A.tot as freqidx, dense_rank() over(order by tot desc) as frank, A.sdate 
+		from (select distinct sl_word, sdate, count(*) over(partition by sl_word) as tot
+      		  from fill.used_sl
+      		  where sdate = #{sdate}
+      		  order by tot desc) A;
     </select>
     
     

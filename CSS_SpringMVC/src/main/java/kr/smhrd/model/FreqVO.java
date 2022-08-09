@@ -8,5 +8,8 @@ public class FreqVO {
 	private int sl_index;
 	private String sl_word;
 	private String sdate;
+	
+	private int frank;
+	private int freqidx;
 
 }
