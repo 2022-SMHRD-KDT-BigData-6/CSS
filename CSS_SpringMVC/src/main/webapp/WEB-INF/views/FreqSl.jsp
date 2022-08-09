@@ -29,17 +29,6 @@
 <noscript>
 	<link rel="stylesheet" href="resources/assets/css/noscript.css" />
 </noscript>
-<!--  
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-	crossorigin="anonymous">
--->
-<!-- 차트 링크 
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
--->
 
 <!-- 날짜 검색 -->
 <script
@@ -54,6 +43,10 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"
 	integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ=="
 	crossorigin="anonymous" referrerpolicy="no-referrer" />
+	
+<!-- 차트 링크 -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
+	
 <link rel="stylesheet" href="./jquery-ui.css">
 </head>
 
@@ -85,18 +78,17 @@
 				</div>
 				<div class="panel-body">
 					<table class="table table-condensed">
-						<tr class="heading">
-						<th>순위</th>	<th>단어</th>	<th>빈도수</th>
+						<tr class="heading" align="center">
+							<th align="center">순위</th>
+							<th align="center">단어</th>
+							<th align="center">빈도수</th>
 						</tr>
 					</table>
 				</div>
 			</div>
 
 			<div class="col-sm-7">
-				<!--  <div class="container">
-					<canvas id="myChart"></canvas> 
-				</div> -->
-
+				<div class="container" id="myChart"></div>
 			</div>
 		</div>
 	</div>
@@ -124,20 +116,27 @@
 
 			var blist = "";
 			var blist2 = "";
-			
+			var wordList = [];
+			var freqList = [];			
+
 			console.log(data);
-			const seldate = data[0].sdate;
+			for(let i = 0 ; i < data.length ; i++) {
+				wordList.push(data[i].sl_word);
+				freqList.push(data[i].freqidx);
+			}			
+			
+			console.log(wordList);
+			console.log(freqList);
+ 			const seldate = data[0].sdate;
 			const displaydate = seldate.split(" ");
 			
 			blist2 = "<div class='searchhead'><h3>" + displaydate[0] + "일 인식 단어 리스트</h3></div>";				
 			
-			//blist += '<div class="panel-body"><table class="table table-condensed"><tr class="heading"> <th>순위</th>	<th>단어</th>	<th>빈도수</th></tr>';
-			
 			$.each(data, function(index, flist) {
 				blist += "<tr class ='innerContent'>"
-				blist += "<td>" + flist.frank + "</td>"
-				blist += "<td>" + flist.sl_word + "</td>"
-				blist += "<td>" + flist.freqidx + "</td>"
+				blist += "<td align='center'>" + flist.frank + "</td>"
+				blist += "<td align='center'>" + flist.sl_word + "</td>"
+				blist += "<td align='center'>" + flist.freqidx + "</td>"
 				blist += "</tr>"
 			})
 
@@ -146,8 +145,34 @@
 			$('.searchhead').remove();
 			$('.table-condensed').before(blist2);
 			$('.innerContent').remove();
-			$('.heading').after(blist);
+			$('.heading').after(blist);	
+			$('#myChart').html("<canvas id='chartCtx'></canvas>")
+			
+			var ctx = $('#myChart > canvas')
+			var myChart = new Chart(ctx, {
+				type : 'bar',
+				data : {
+					labels : wordList,
+					datasets : [{
+						label : '인식 단어 빈도수',
+						data : freqList,
+						backgroundColor : 'rgba(255, 99, 132, 1)',
+						borderColor : 'rgba(255, 99, 132, 1)',
+						borderWidth : 0
+					}]
+				},
+		    	options: {
+		        	scales: {			       
+			            x : {
+			            	grid:{
+			                	drawOnChartArea:false
+			                }
+		    	        }
+		        	}
+	        	}
+			});
 		}
+		
 
 		// 날짜 검색
 		$.datepicker.setDefaults({
@@ -168,7 +193,7 @@
 		$('.datepicker').datepicker({
 			dateFormat : 'yy-mm-dd',
 			onSelect : function(sdate) {
-				searchList(sdate);
+				searchList(sdate);				
 			}
 		});
 		
@@ -183,9 +208,8 @@
 				}
 			});
 		}
-		
-	</script>
 
+	</script>
 
 	<!-- Scripts -->
 	<script src="resources/assets/js/jquery.min.js"></script>
@@ -198,78 +222,5 @@
 	<script src="resources/assets/js/main.js"></script>
 	<script src="resources/assets/jquery-ui/jquery-ui.min.js"></script>
 
-	<!-- 부트스트랩 
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-		crossorigin="anonymous"></script>   -->
-	<!-- 차트 
-
-	<script>
-		var ctx = document.getElementById('myChart');
-		var myChart = new Chart(ctx, {
-			type : 'bar',
-			data : {
-
-				labels : [ 'Red', 'Blue', 'Yellow', 'Green', 'Purple',
-						'Orange', '1', '2', '3', '4' ],
-				datasets : [ {
-					label : '단어별 빈도수',
-					data : [ 12, 19, 3, 5, 2, 3, 7, 9, 10, 4 ],
-					backgroundColor : [ 'rgba(255, 99, 132, 1)',
-							'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)',
-							'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)',
-							'rgba(255, 159, 64, 1)', 'rgba(75, 192, 192, 1)',
-							'rgba(153, 102, 255, 1)', 'rgba(75, 192, 192, 1)',
-							'rgba(153, 102, 255, 1)' ],
-					borderColor : [ 'rgba(255, 99, 132, 1)',
-							'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)',
-							'rgba(75, 192, 192, 1)', 'rgba(255, 206, 86, 1)',
-							'rgba(75, 192, 192, 1)', 'rgba(255, 206, 86, 1)',
-							'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)',
-							'rgba(255, 159, 64, 1)' ],
-					borderWidth : 0
-				} ]
-			},
-			options : {
-				scales : {
-					yAxes : [ {
-						ticks : {
-							beginAtZero : true
-						}
-					} ]
-				}
-			}
-		});
-	</script>
-    -->
-
-
-	<!--      
-	<script type="text/javascript">
-		$(function() {
-			$('#datetimepicker1').datetimepicker({
-				format : 'yyyy-mm-dd'
-			});
-			$('#datetimepicker2').datetimepicker({
-				format : 'yyyy-mm-dd',
-				useCurrent : false
-			});
-			$("#datetimepicker1").on("change.datetimepicker", function(e) {
-				$('#datetimepicker2').datetimepicker('minDate', e.date);
-			});
-			$("#datetimepicker2").on("change.datetimepicker", function(e) {
-				$('#datetimepicker1').datetimepicker('maxDate', e.date);
-			});
-		});
-	</script>
-	-->
 </body>
 </html>
