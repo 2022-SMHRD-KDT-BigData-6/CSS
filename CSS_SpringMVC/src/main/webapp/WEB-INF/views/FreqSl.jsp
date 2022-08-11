@@ -65,34 +65,39 @@
 				</ul>
 			</nav>
 		</div>
-
-		<div class="row">
-			<div class="col-sm-5">
-				<p>
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<h4>
-							날짜 : <input class="datepicker">
-						</h4>
+		
+		<!-- Main -->
+		<div class ="wrapper style1">
+			<div class = "container">
+				<div class = "row gtr-200">				
+					<div class = "col-4" id = "sidebar">
+						<hr class = "first" />
+						<section>
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4>
+										날짜 : <input class="datepicker">
+									</h4>
+								</div>
+							</div>
+							<div class="panel-body">
+								<table class="table table-condensed">
+									<tr class="heading" align="center">
+										<th align="center">순위</th>
+										<th align="center">단어</th>
+										<th align="center">빈도수</th>
+									</tr>
+								</table>
+							</div>						
+						</section>
 					</div>
+		
+					<div class="col-8" id="myChart"></div>
 				</div>
-				<div class="panel-body">
-					<table class="table table-condensed">
-						<tr class="heading" align="center">
-							<th align="center">순위</th>
-							<th align="center">단어</th>
-							<th align="center">빈도수</th>
-						</tr>
-					</table>
-				</div>
-			</div>
-
-			<div class="col-sm-7">
-				<div class="container" id="myChart"></div>
 			</div>
 		</div>
 	</div>
-
+	
 
 	<script type="text/javascript">
 		$(document).ready(function() {
