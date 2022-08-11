@@ -16,8 +16,7 @@
       		  from fill.used_sl
       		  where DATE(sdate) = #{sdate}
       		  order by tot desc) A;
-    </select>
-    
+    </select>    
     
     
 </mapper>

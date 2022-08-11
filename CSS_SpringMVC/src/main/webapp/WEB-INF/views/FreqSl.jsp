@@ -125,6 +125,11 @@
 			var freqList = [];			
 
 			console.log(data);
+			
+			if(data.length == 0){
+				alert("선택한 날짜에 데이터가 존재하지 않습니다.\n날짜를 다시 선택해 주세요~~")	
+			}
+			
 			for(let i = 0 ; i < data.length ; i++) {
 				wordList.push(data[i].sl_word);
 				freqList.push(data[i].freqidx);
