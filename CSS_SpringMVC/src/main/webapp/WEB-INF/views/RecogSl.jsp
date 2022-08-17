@@ -17,10 +17,23 @@
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
+
+<!-- 진석 -->
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils@0.1/drawing_utils.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/holistic@0.1/holistic.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+<script type="application/javascript"  src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands_solution_simd_wasm_bin.js" crossorigin="anonymous"></script>
+
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<meta content="Display Webcam Stream" name="title">
 <link rel="stylesheet" href="resources/assets/css/main.css" />
 <noscript><link rel="stylesheet" href="resources/assets/css/noscript.css" /></noscript>
+
 <style>
 	button{
 		position: absolute;
@@ -34,9 +47,38 @@
 	    cursor: pointer;
 	    outline: 0;
 	    font-weight: 300;
-	    top: 600px;
-	    left: 250px;
+	    top: 400px;
+	    left: 200px;
 	}
+	
+	
+	.input_video {
+  display: block;
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  right: 0;
+  bottom: 0;
+   &.selfie {
+    transform: scale(-1, 1);
+  }
+  
+}
+ 
+ 
+.output_canvas {
+  max-width: 100%;
+  display: block;
+  position: absolute;
+  left: 100px;
+  top: 100px;
+   width: 400px;
+    height: 300px;
+    background-color: #666;
+ 
+  }
+  
+  
 </style>
 
 </head>
@@ -61,7 +103,10 @@
 			<div class="panel-body">
 				<div class="row">
 					<div class="col-sm-4">
-					<video id="myVideo" width="600" height="600" style="border: 1px solid #ddd;"></video>
+					<div class="container">
+    					<video class="input_video" width="400px" height="300px" autoplay loop muted></video>
+    					<canvas class="output_canvas" width="400px" height="300px"></canvas>
+  					</div>
 					<button>수어 결과</button>
 					</div>
 					<div class="col-sm-3">
@@ -87,38 +132,38 @@
 			</div>
 			
 		</div>
+
 		
 	</div>
 
-	<!-- Scripts -->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/jquery.dropotron.min.js"></script>
-	<script src="assets/js/jquery.scrolly.min.js"></script>
-	<script src="assets/js/jquery.scrollex.min.js"></script>
-	<script src="assets/js/browser.min.js"></script>
-	<script src="assets/js/breakpoints.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<script src="assets/js/main.js"></script>
-	<script>
-        // 1. 요소들을 가져오기
-        let btn = document.querySelector('button');
-        let img = document.querySelector('.img1');
-        // 2. 이벤트 처리하기
-        btn.onclick = function(){
-        	console.log(img.src);
-            if(img.src == "./resources/slimg2/2.jpg"){
-            	console.log(img.src);
-                img.src = "./resources/slimg3/1.jpg";
-            } else{
-            console.log(img.src);
-            img.src = './resources/slimg3/1.jpg';
-            console.log(img.src);
-            }
-        }
-
-
-    </script>
 	
+	
+	<script type="text/javascript" src = "resources/assets/js/canvas.js"></script>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+ 
+	
+ 
+ 
 	
 	
 	

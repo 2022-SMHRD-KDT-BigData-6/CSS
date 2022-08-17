@@ -33,4 +33,10 @@ public class FileController {
 		return "FreqSl";
 	}
 	
+	@RequestMapping("/html")
+	public String html() {
+		
+		return "redirect:/RecogSI.html";
+	}
+	
 }

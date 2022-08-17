@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import kr.smhrd.model.FreqVO;
+import kr.smhrd.model.RecogVO;
 import kr.smhrd.service.FreqService;
 
 @RestController
@@ -27,5 +28,11 @@ public class FreqRESTController {
 		List<FreqVO> searchlist = fservice.seldateFreqAjax(sdate);
 		
 		return searchlist;
+	}
+	
+	@RequestMapping("/selectslAjax.do")
+	public RecogVO selectsl(int sl_index) {
+		RecogVO vo = fservice.selectsl(sl_index);
+		return vo;
 	}
 }
