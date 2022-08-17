@@ -14,10 +14,9 @@
         select distinct A.sl_word as sl_word, A.tot as freqidx, dense_rank() over(order by tot desc) as frank, A.sdate 
 		from (select distinct sl_word, sdate, count(*) over(partition by sl_word) as tot
       		  from fill.used_sl
-      		  where sdate = #{sdate}
+      		  where DATE(sdate) = #{sdate}
       		  order by tot desc) A;
-    </select>
-    
+    </select>    
     
     
 </mapper>

@@ -25,7 +25,7 @@
 <meta charset="UTF-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
-<link rel="stylesheet" href="resources/assets/css/main.css" />
+
 <noscript>
 	<link rel="stylesheet" href="resources/assets/css/noscript.css" />
 </noscript>
@@ -48,8 +48,8 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
 	
 <link rel="stylesheet" href="./jquery-ui.css">
+<link rel="stylesheet" href="resources/assets/css/main.css" />
 </head>
-
 <body class="no-sidebar is-preload">
 	<div id="page-wrapper">
 
@@ -65,35 +65,39 @@
 				</ul>
 			</nav>
 		</div>
-
-		<div class="row">
-			<div class="col-sm-5">
-				<p>
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<h4>
-							날짜 : <input class="datepicker">
-						</h4>
+		
+		<!-- Main -->
+		<div class ="wrapper style1">
+			<div class = "container">
+				<div class = "row gtr-200">				
+					<div class = "col-4" id = "sidebar">
+						<hr class = "first" />
+						<section>
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4>
+										날짜 : <input class="datepicker">
+									</h4>
+								</div>
+							</div>
+							<div class="panel-body">
+								<table class="table table-condensed">
+									<tr class="heading" align="center">
+										<th align="center">순위</th>
+										<th align="center">단어</th>
+										<th align="center">빈도수</th>
+									</tr>
+								</table>
+							</div>						
+						</section>
 					</div>
+		
+					<div class="col-8" id="myChart"></div>
 				</div>
-				<div class="panel-body">
-					<table class="table table-condensed">
-						<tr class="heading" align="center">
-							<th align="center">순위</th>
-							<th align="center">단어</th>
-							<th align="center">빈도수</th>
-						</tr>
-					</table>
-				</div>
-			</div>
-
-			<div class="col-sm-7">
-				<div class="container" id="myChart"></div>
 			</div>
 		</div>
 	</div>
-
-
+	
 	<script type="text/javascript">
 		$(document).ready(function() {
 			loadList();
@@ -120,6 +124,11 @@
 			var freqList = [];			
 
 			console.log(data);
+			
+			if(data.length == 0){
+				alert("선택한 날짜에 데이터가 존재하지 않습니다.\n날짜를 다시 선택해 주세요~~")	
+			}
+			
 			for(let i = 0 ; i < data.length ; i++) {
 				wordList.push(data[i].sl_word);
 				freqList.push(data[i].freqidx);

@@ -26,14 +26,13 @@
 	video{
 		    height: 850px;
   		 	position: absolute;
-    		top: -400px;
-    		left: -700px;
+    		top: -350px;
+    		left: -760px;
 	}
 	a.button.circled.scrolly{
 		position: absolute;
 		top: 340px;
 	}
-	
 </style>
 </head>
 	<body class="homepage is-preload">
@@ -41,43 +40,51 @@
 
 			<!-- Header -->
 				<div id="header">
-				
 
 					<!-- Inner -->
 						<div class="inner">		
 							<video src="resources/images/homescreen4.mp4" loop muted autoplay>이 브라우저는 재생할 수 없습니다.</video>
 							<footer>
-								<a href="RecogSl" class="button circled scrolly">Start</a>
+								<a href="RecogSl" class="button circled scrolly">시작</a>
 							</footer>
 						</div>
 
-					<!-- Nav -->
-						<nav id="nav">
-							
+						<!-- Nav -->
+						<nav id="nav">							
 							<ul>
 								<li><a href="Home">홈</a></li>
 								<li><a href="RecogSl">수어인식 화면</a></li>
 								<li><a href="FreqSl">수어통계 페이지</a></li>
 							</ul>
 						</nav>
-
 				</div>
+			</div>
 				
 				<div class="container">
-      <h2>숫자 입력</h2>
-      <div class="panel panel-default">
-         <div class="panel-heading">
-            <form action="http://172.30.1.10:8081/urlmapping" method='POST'>
-               ID : <input type="text" name="id"> <br>
-               <input type="submit" >
-            </form>
+				    <h2>숫자 입력</h2>
+	      			<div class="panel panel-default">
+	         			<div class="panel-heading">
+	            			<form action="http://172.30.1.10:8081/urlmapping" method='POST'>
+	               				ID : <input type="text" name="id"> <br>
+	               				<input type="submit" >
+	            			</form>	
+				         </div>
+	      			</div>
+ 			  </div>   
 
-         </div>
-      </div>
-   </div>
-   
-
+<<<<<<< HEAD
 		
 	
+=======
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>	
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-6/CSS
 </body>
 </html>
