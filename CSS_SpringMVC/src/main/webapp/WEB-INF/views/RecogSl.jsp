@@ -18,11 +18,24 @@
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
+
+<!-- 진석 -->
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils@0.1/drawing_utils.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/holistic@0.1/holistic.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+<script type="application/javascript"  src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands_solution_simd_wasm_bin.js" crossorigin="anonymous"></script>
+
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<meta content="Display Webcam Stream" name="title">
 <link rel="stylesheet" href="resources/assets/css/main.css" />
 
 <noscript><link rel="stylesheet" href="resources/assets/css/noscript.css" /></noscript>
+
 <style>
 	.button1{
 		position: absolute;
@@ -36,9 +49,15 @@
 	    cursor: pointer;
 	    outline: 0;
 	    font-weight: 300;
+<<<<<<< HEAD
 	    top: 600px;
 	    left: 230px;
+=======
+	    top: 400px;
+	    left: 200px;
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-6/CSS.git
 	}
+<<<<<<< HEAD
 	.img2{
 		height:200px;
 		weight:170px;
@@ -71,6 +90,37 @@
 			width:25%;
 		}*/
 	
+=======
+	
+	
+	.input_video {
+  display: block;
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  right: 0;
+  bottom: 0;
+   &.selfie {
+    transform: scale(-1, 1);
+  }
+  
+}
+ 
+ 
+.output_canvas {
+  max-width: 100%;
+  display: block;
+  position: absolute;
+  left: 100px;
+  top: 100px;
+   width: 400px;
+    height: 300px;
+    background-color: #666;
+ 
+  }
+  
+  
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-6/CSS.git
 </style>
 
 </head>
@@ -94,11 +144,20 @@
 		<div class="panel panel-default">
 			<div class="panel-body">
 				<div class="row">
+<<<<<<< HEAD
 					<div class="col-sm-4" id="image">
 					<video id="myVideo" width="600" height="600" style="border: 1px solid #ddd;">
 						<source src="resources/images/homescreen4.mp4">
 					</video>
 					<button type="button" class="button1" onclick="usesl();">결과 보기</button>
+=======
+					<div class="col-sm-4">
+					<div class="container">
+    					<video class="input_video" width="400px" height="300px" autoplay loop muted></video>
+    					<canvas class="output_canvas" width="400px" height="300px"></canvas>
+  					</div>
+					<button>수어 결과</button>
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-6/CSS.git
 					</div>
 					
 					<div class="col-sm-3" id="image1">
@@ -132,9 +191,12 @@
 			</div>
 			
 		</div>
+
 		
 	</div>
 
+<<<<<<< HEAD
+=======
 	<!-- Scripts -->
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/jquery.dropotron.min.js"></script>
@@ -243,7 +305,35 @@
 	
     	
     </script>
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-6/CSS
 	
+	
+	<script type="text/javascript" src = "resources/assets/js/canvas.js"></script>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+ 
+	
+ 
+ 
 	
 	
 	
