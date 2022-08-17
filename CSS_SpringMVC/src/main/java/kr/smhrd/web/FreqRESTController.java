@@ -31,7 +31,6 @@ public class FreqRESTController {
 		return searchlist;
 	}
 	
-<<<<<<< HEAD
 	@RequestMapping("/insertslAjax.do")
 	public void insertsl(String sl_index) {
 		RecogVO vo = new RecogVO();
@@ -48,6 +47,3 @@ public class FreqRESTController {
 	
 	
 }
-=======
-	}
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-6/CSS.git

@@ -44,10 +44,4 @@
 	<context:component-scan
 		base-package="kr.smhrd.service" />
 	
-<<<<<<< HEAD
-	
-=======
-
-
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-6/CSS.git
 </beans:beans>

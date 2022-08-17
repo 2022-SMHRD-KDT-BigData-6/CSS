@@ -17,7 +17,4 @@ public interface FreqMapper {
 	
 	public RecogVO selectuse(RecogVO vo);
 
-
-	
-	public RecogVO selectsl(int sl_index);
 }
