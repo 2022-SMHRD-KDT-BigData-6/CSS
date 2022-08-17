@@ -30,9 +30,4 @@ public class FreqRESTController {
 		return searchlist;
 	}
 	
-	@RequestMapping("/selectslAjax.do")
-	public RecogVO selectsl(int sl_index) {
-		RecogVO vo = fservice.selectsl(sl_index);
-		return vo;
 	}
-}
