@@ -25,7 +25,7 @@
 <meta charset="UTF-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
-<link rel="stylesheet" href="resources/assets/css/main.css" />
+
 <noscript>
 	<link rel="stylesheet" href="resources/assets/css/noscript.css" />
 </noscript>
@@ -48,8 +48,8 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
 	
 <link rel="stylesheet" href="./jquery-ui.css">
+<link rel="stylesheet" href="resources/assets/css/main.css" />
 </head>
-
 <body class="no-sidebar is-preload">
 	<div id="page-wrapper">
 
@@ -98,7 +98,6 @@
 		</div>
 	</div>
 	
-
 	<script type="text/javascript">
 		$(document).ready(function() {
 			loadList();

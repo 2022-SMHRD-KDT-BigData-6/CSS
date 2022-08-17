@@ -27,7 +27,7 @@
 		    height: 850px;
   		 	position: absolute;
     		top: -350px;
-    		left: -700px;
+    		left: -760px;
 	}
 	a.button.circled.scrolly{
 		position: absolute;
@@ -45,7 +45,7 @@
 						<div class="inner">		
 							<video src="resources/images/homescreen4.mp4" loop muted autoplay>이 브라우저는 재생할 수 없습니다.</video>
 							<footer>
-								<a href="RecogSl" class="button circled scrolly">Start</a>
+								<a href="RecogSl" class="button circled scrolly">시작</a>
 							</footer>
 						</div>
 

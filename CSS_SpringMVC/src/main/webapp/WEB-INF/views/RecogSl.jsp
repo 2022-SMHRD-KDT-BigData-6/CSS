@@ -115,8 +115,6 @@
             console.log(img.src);
             }
         }
-
-
     </script>
 	
 	
