@@ -18,7 +18,20 @@
       		  order by tot desc) A;
     </select>
     
+    <insert id="insertsl" parameterType="kr.smhrd.model.FreqVO">
+        insert into fill.used_sl(sl_index, sl_word, sdate)
+        values (#{sl_index}, #{sl_word}, curdate());
+    </insert>
     
+    <select id="selectuse" resultType="kr.smhrd.model.RecogVO" parameterType="kr.smhrd.model.RecogVO"> 
+    	select * from fill.sl
+        where sl_index=#{sl_index};     
+    </select>
+    
+    <select id="selectsl" resultType="kr.smhrd.model.RecogVO">
+        select sl_word, sl_index from fill.sl
+        where sl_index=#{sl_index};
+    </select>
     
 </mapper>
     
