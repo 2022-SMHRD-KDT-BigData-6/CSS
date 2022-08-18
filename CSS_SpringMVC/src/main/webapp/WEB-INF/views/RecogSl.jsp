@@ -136,35 +136,7 @@
 		
 	</div>
 
-<<<<<<< HEAD
-=======
-	<!-- Scripts -->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/jquery.dropotron.min.js"></script>
-	<script src="assets/js/jquery.scrolly.min.js"></script>
-	<script src="assets/js/jquery.scrollex.min.js"></script>
-	<script src="assets/js/browser.min.js"></script>
-	<script src="assets/js/breakpoints.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<script src="assets/js/main.js"></script>
-	<script>
-        // 1. 요소들을 가져오기
-        let btn = document.querySelector('button');
-        let img = document.querySelector('.img1');
-        // 2. 이벤트 처리하기
-        btn.onclick = function(){
-        	console.log(img.src);
-            if(img.src == "./resources/slimg2/2.jpg"){
-            	console.log(img.src);
-                img.src = "./resources/slimg3/1.jpg";
-            } else{
-            console.log(img.src);
-            img.src = './resources/slimg3/1.jpg';
-            console.log(img.src);
-            }
-        }
-    </script>
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-6/CSS
+
 	
 	
 	<script type="text/javascript" src = "resources/assets/js/canvas.js"></script>
