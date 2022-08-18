@@ -49,15 +49,10 @@
 	    cursor: pointer;
 	    outline: 0;
 	    font-weight: 300;
-<<<<<<< HEAD
+
 	    top: 600px;
 	    left: 230px;
-=======
-	    top: 400px;
-	    left: 200px;
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-6/CSS.git
 	}
-<<<<<<< HEAD
 	.img2{
 		height:200px;
 		weight:170px;
@@ -90,8 +85,7 @@
 			width:25%;
 		}*/
 	
-=======
-	
+
 	
 	.input_video {
   display: block;
@@ -120,7 +114,6 @@
   }
   
   
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-6/CSS.git
 </style>
 
 </head>
@@ -144,20 +137,12 @@
 		<div class="panel panel-default">
 			<div class="panel-body">
 				<div class="row">
-<<<<<<< HEAD
+
 					<div class="col-sm-4" id="image">
 					<video id="myVideo" width="600" height="600" style="border: 1px solid #ddd;">
 						<source src="resources/images/homescreen4.mp4">
 					</video>
 					<button type="button" class="button1" onclick="usesl();">결과 보기</button>
-=======
-					<div class="col-sm-4">
-					<div class="container">
-    					<video class="input_video" width="400px" height="300px" autoplay loop muted></video>
-    					<canvas class="output_canvas" width="400px" height="300px"></canvas>
-  					</div>
-					<button>수어 결과</button>
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-6/CSS.git
 					</div>
 					
 					<div class="col-sm-3" id="image1">
@@ -195,8 +180,7 @@
 		
 	</div>
 
-<<<<<<< HEAD
-=======
+
 	<!-- Scripts -->
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/jquery.dropotron.min.js"></script>
@@ -305,14 +289,15 @@
 	
     	
     </script>
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-6/CSS
+
 	
 	
 	<script type="text/javascript" src = "resources/assets/js/canvas.js"></script>
 	
 	
 	
-	
+</body>
+</html>	
 	
 	
 	
