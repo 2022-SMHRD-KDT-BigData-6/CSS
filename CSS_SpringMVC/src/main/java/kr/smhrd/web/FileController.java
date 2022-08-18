@@ -23,6 +23,7 @@ public class FileController {
 		return "Home";
 	}
 
+//	redirect:/
 	@RequestMapping("/RecogSl")
 	public String RecogSl() {
 		return "RecogSl";
