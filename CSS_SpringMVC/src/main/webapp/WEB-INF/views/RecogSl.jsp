@@ -1,3 +1,4 @@
+<%@page import="kr.smhrd.model.FreqVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%> 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
@@ -17,12 +18,26 @@
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
+
+<!-- 진석 -->
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils@0.1/drawing_utils.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/holistic@0.1/holistic.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+<script type="application/javascript"  src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands_solution_simd_wasm_bin.js" crossorigin="anonymous"></script>
+
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<meta content="Display Webcam Stream" name="title">
 <link rel="stylesheet" href="resources/assets/css/main.css" />
+
 <noscript><link rel="stylesheet" href="resources/assets/css/noscript.css" /></noscript>
+
 <style>
-	button{
+	.button1{
 		position: absolute;
 	    background: #df7366;
 	    color: #fff;
@@ -34,9 +49,71 @@
 	    cursor: pointer;
 	    outline: 0;
 	    font-weight: 300;
+
 	    top: 600px;
-	    left: 250px;
+	    left: 230px;
 	}
+	.img2{
+		height:200px;
+		weight:170px;
+	}
+	.img3{
+		height:200px;
+		weight:170px;
+	}
+	
+	
+		/*div{
+			height:100px;
+		}
+		.panel.panel-default{
+			height:700px;
+		}
+		#image{
+			width:25%;	
+		}
+		#image1{
+			margin-left:5%;
+			width:20%;
+		}
+		#image2{
+			margin-left:5%;
+			width:15%;
+		}
+		#image3{
+			margin-left:5%;
+			width:25%;
+		}*/
+	
+
+	
+	.input_video {
+  display: block;
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  right: 0;
+  bottom: 0;
+   &.selfie {
+    transform: scale(-1, 1);
+  }
+  
+}
+ 
+ 
+.output_canvas {
+  max-width: 100%;
+  display: block;
+  position: absolute;
+  left: 100px;
+  top: 100px;
+   width: 400px;
+    height: 300px;
+    background-color: #666;
+ 
+  }
+  
+  
 </style>
 
 </head>
@@ -60,35 +137,49 @@
 		<div class="panel panel-default">
 			<div class="panel-body">
 				<div class="row">
-					<div class="col-sm-4">
-					<video id="myVideo" width="600" height="600" style="border: 1px solid #ddd;"></video>
-					<button>수어 결과</button>
+
+					<div class="col-sm-4" id="image">
+					<video id="myVideo" width="600" height="600" style="border: 1px solid #ddd;">
+						<source src="resources/images/homescreen4.mp4">
+					</video>
+					<button type="button" class="button1" onclick="usesl();">결과 보기</button>
 					</div>
-					<div class="col-sm-3">
+					
+					<div class="col-sm-3" id="image1">
+						<br><br>
 						<img class="img1" src="resources/slimg3/1.jpg">
+						<br><br>
+						<h3>　　　　　　아메리카노</h3>
 						<br>
-						<h3 align="center">왼쪽</h3>
-						<br>
-						<h4 align="center">1.오른쪽</h4>
-						<h4 align="center">2.손짓</h4>	
+						<h4>　　　　　　　　1.음료</h4>
+						<h4>　　　　　　　　2.차가운</h4>	
 					</div>
-					<div class="col-sm-2">
-						<img class="img2" src="resources/slimg2/2.jpg">
+					<div class="col-sm-2" id="image2">
+						<br><br>
+						<img class="img2" src="resources/slimg3/2.jpg">
+						<br><br>
+						<h4>　　　　냉방</h4>
 						<br>
-						<h4 align="center">왼쪽</h4>
-						<br>
-						<h5 align="center">1.오른쪽</h5>
-						<h5 align="center">2.손짓</h5>
+						<h5>　　　　1.차가운</h5>
+						<h5>　　　　2.음료</h5>
 					</div>
-					<div class="col-sm-2">
-						<img class="img3" src="resources/slimg2/3.jpg">
+					<div class="col-sm-2" id="image3">
+						<br><br>
+						<img class="img3" src="resources/slimg3/3.jpg">
+						<br><br>
+						<h4>　　　　번호</h4>
+						<br>
+						<h5>　　　　1.숫자</h5>
+						<h5>　　　　2.전화번호</h5>
 					</div>
 				</div>
 			</div>
 			
 		</div>
+
 		
 	</div>
+
 
 	<!-- Scripts -->
 	<script src="assets/js/jquery.min.js"></script>
@@ -100,23 +191,134 @@
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
 	<script>
-        // 1. 요소들을 가져오기
-        let btn = document.querySelector('button');
-        let img = document.querySelector('.img1');
-        // 2. 이벤트 처리하기
-        btn.onclick = function(){
-        	console.log(img.src);
-            if(img.src == "./resources/slimg2/2.jpg"){
-            	console.log(img.src);
-                img.src = "./resources/slimg3/1.jpg";
-            } else{
-            console.log(img.src);
-            img.src = './resources/slimg3/1.jpg';
-            console.log(img.src);
-            }
-        }
-    </script>
 	
+		
+        function usesl(){
+        	insertsl();
+        	selectsl();
+        	selectsl1();
+        	selectsl2();
+        }
+        
+        function insertsl(){
+            $.ajax({
+    			// 서버 url
+    			url : '${cpath}/insertslAjax.do',
+    			// data : 보내줄 데이터를 객체형식으로 넘겨줬었음!{'idx':idx}
+    			// 요청 방식
+    			data : {'sl_index':13},
+    			type : 'get',
+    			datatype : 'json',
+    			// 받아올 데이터 타입 지정
+    			// 성공했을 때 실행할 함수
+    			success: function(){
+    				alert('성공!');
+    			},
+    			// 실패했을 때 실행할 함수
+    			error: function(){
+    				alert('실패!');
+    			}
+    		})	
+            
+        }
+
+    	
+    	function listView(data){
+    		console.log(data);	     		
+    		var blist = ""; 
+    			blist += "<br><br><img class='img' src='resources/slimg3/"+data.sl_index+".jpg'>"
+    			blist += "<br><br><h3>　　　　　　"+data.sl_word+"</h3>" 
+    		$('#image1').html(blist);    	
+    	 }
+	
+    function selectsl(){
+	    	$.ajax({
+	    		url:'${cpath}/selectslAjax.do',
+	    		type : 'get',
+	    		data:{'sl_index':13},
+	    		dataType : 'json',
+	    		success : listView,
+	    		error: function(){
+	    			alert("실패!");
+	    		}
+	    	})	
+    	}
+    
+    
+	function listView1(data){
+		console.log(data);	     		
+		var blist = ""; 
+			blist += "<br><br><img class='img' src='resources/slimg2/"+data.sl_index+".jpg'>"
+			blist += "<br><br><h4>　　　　"+data.sl_word+"</h4>" 
+		$('#image2').html(blist);    	
+	 }
+
+	function selectsl1(){
+    	$.ajax({
+    		url:'${cpath}/selectslAjax.do',
+    		type : 'get',
+    		data:{'sl_index':14},
+    		dataType : 'json',
+    		success : listView1,
+    		error: function(){
+    			alert("실패!");
+    		}
+    	})	
+	}
+    	
+	function listView2(data){
+		console.log(data);	     		
+		var blist = ""; 
+			blist += "<br><br><img class='img' src='resources/slimg2/"+data.sl_index+".jpg'>"
+			blist += "<br><br><h4>　　　　"+data.sl_word+"</h4>" 
+		$('#image3').html(blist);    	
+	 }
+
+	function selectsl2(){
+    	$.ajax({
+    		url:'${cpath}/selectslAjax.do',
+    		type : 'get',
+    		data:{'sl_index':15},
+    		dataType : 'json',
+    		success : listView2,
+    		error: function(){
+    			alert("실패!");
+    		}
+    	})	
+	}
+	
+    	
+    </script>
+
+	
+	
+	<script type="text/javascript" src = "resources/assets/js/canvas.js"></script>
+	
+	
+	
+</body>
+</html>	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+ 
+	
+ 
+ 
 	
 	
 	
