@@ -49,6 +49,31 @@
 	
 <link rel="stylesheet" href="./jquery-ui.css">
 <link rel="stylesheet" href="resources/assets/css/main.css" />
+<!-- font링크 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@500&display=swap" rel="stylesheet">
+<style>
+
+
+#header{
+	
+	
+	font-family: 'IBM Plex Sans KR', sans-serif;
+	
+	}
+
+.container {
+
+font-family: 'IBM Plex Sans KR', sans-serif;
+
+}
+
+
+
+
+</style>
+
 </head>
 <body class="no-sidebar is-preload">
 	<div id="page-wrapper">

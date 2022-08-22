@@ -13,7 +13,10 @@ public interface FreqMapper {
 
 	public void insertsl(FreqVO vo);
 
+
 	public RecogVO selectsl(int sl_index);
 
+
 	public RecogVO selectuse(RecogVO vo);
+
 }

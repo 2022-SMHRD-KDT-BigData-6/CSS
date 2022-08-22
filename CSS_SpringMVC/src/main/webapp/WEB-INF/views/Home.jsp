@@ -21,8 +21,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="resources/assets/css/main.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@500&display=swap" rel="stylesheet">
 <noscript><link rel="stylesheet" href="resources/assets/css/noscript.css" /></noscript>
 <style>
+	#header{
+	
+	
+	font-family: 'IBM Plex Sans KR', sans-serif;
+	
+	}
 	video{
 		    height: 850px;
   		 	position: absolute;
@@ -30,8 +39,11 @@
     		left: -760px;
 	}
 	a.button.circled.scrolly{
+		
 		position: absolute;
 		top: 340px;
+		left: -65px;
+		font-family: 'IBM Plex Sans KR', sans-serif;
 	}
 </style>
 </head>
@@ -60,18 +72,7 @@
 				</div>
 			</div>
 				
-				<div class="container">
-				    <h2>숫자 입력</h2>
-	      			<div class="panel panel-default">
-	         			<div class="panel-heading">
-	            			<form action="http://172.30.1.10:8081/urlmapping" method='POST'>
-	               				ID : <input type="text" name="id"> <br>
-	               				<input type="submit" >
-	            			</form>	
-				         </div>
-	      			</div>
- 			  </div>   
-
+				
 
 </body>
 </html>
